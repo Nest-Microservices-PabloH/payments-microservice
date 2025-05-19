@@ -9,6 +9,7 @@ const envSchema = z.object({
     STRIPE_ENDPOINT_SECRET: z.string(),
     STRIPE_SUCCESS_URL: z.string().url(),
     STRIPE_CANCEL_URL: z.string().url(),
+    NATS_SERVERS: z.string().transform((str) => str.split(',')),
 })
 
 // Luego haces el parsing:
@@ -25,4 +26,5 @@ export const envs = {
     STRIPE_ENDPOINT_SECRET: data.STRIPE_ENDPOINT_SECRET,
     STRIPE_SUCCESS_URL: data.STRIPE_SUCCESS_URL,
     STRIPE_CANCEL_URL: data.STRIPE_CANCEL_URL,
+    NATS_SERVERS: data.NATS_SERVERS,
 }
